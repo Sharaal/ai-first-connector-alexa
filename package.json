@@ -1,0 +1,38 @@
+{
+  "private": true,
+  "name": "ai-connector-alexa",
+  "version": "1.0.0",
+  "description": "",
+  "license": "UNLICENSED",
+  "homepage": "http://github.com/dragonprojects/ai-connector-alexa",
+  "author": {
+    "name": "Sharaal",
+    "email": "developer@dragonprojects.de",
+    "url": "http://dragonprojects.de"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dragonprojects/ai-connector-alexa.git"
+  },
+  "readmeFilename": "README.md",
+  "scripts": {
+    "develop": "nodemon src/web.js",
+    "lint": "eslint src",
+    "start": "node src/web.js"
+  },
+  "engines": {
+    "node": "7.6.x"
+  },
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "dotenv": "^4.0.0",
+    "express": "^4.14.1",
+    "request": "^2.79.0",
+    "request-promise": "^4.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.15.0",
+    "eslint-config-dnode": "^1.5.0",
+    "nodemon": "^1.11.0"
+  }
+}
