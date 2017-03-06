@@ -1,4 +1,5 @@
 require('dotenv').config({ silent: true });
+const _ = require('lodash');
 
 const app = require('express')();
 app.listen(process.env.PORT);
@@ -11,10 +12,10 @@ const rp = require('request-promise').defaults({
 app.post('/', require('body-parser').json(), async (req, res) => {
   const alexaRequest = req.body;
   const aiRequest = {
-    intent: alexaRequest.request.intent.name,
+    intent: _.get(alexaRequest, 'request.intent.name'),
     params: (() => {
       const params = {};
-      const slots = alexaRequest.request.intent.slots;
+      const slots = _.get(alexaRequest, 'request.intent.slots');
       if (slots) {
         for (const name of Object.keys(slots)) {
           params[name] = slots[name].value;
