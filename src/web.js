@@ -12,7 +12,7 @@ const rp = require('request-promise').defaults({
 app.post('/', require('body-parser').json(), async (req, res) => {
   const alexaRequest = req.body;
   const aiRequest = {
-    intent: _.get(alexaRequest, 'request.intent.name'),
+    name: _.get(alexaRequest, 'request.intent.name'),
     params: (() => {
       const params = {};
       const slots = _.get(alexaRequest, 'request.intent.slots');
