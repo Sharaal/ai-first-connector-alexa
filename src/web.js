@@ -15,11 +15,9 @@ app.post('/', require('body-parser').json(), async (req, res) => {
     name: _.get(alexaRequest, 'request.intent.name'),
     params: (() => {
       const params = {};
-      const slots = _.get(alexaRequest, 'request.intent.slots');
-      if (slots) {
-        for (const name of Object.keys(slots)) {
-          params[name] = slots[name].value;
-        }
+      const slots = _.get(alexaRequest, 'request.intent.slots', {});
+      for (const name of Object.keys(slots)) {
+        params[name] = slots[name].value;
       }
       return params;
     })(),
