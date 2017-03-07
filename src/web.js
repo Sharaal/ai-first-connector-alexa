@@ -11,12 +11,16 @@ const rp = require('request-promise').defaults({
 
 app.post('/', require('body-parser').json(), async (req, res) => {
   const alexaRequest = req.body;
+  const id = _.get(alexaRequest, 'request.requestId');
+  console.log(`id: ${id}`);
+  console.log(`(${id}) alexaRequest: ${alexaRequest}`);
   const type = _.get(alexaRequest, 'request.type');
   if (type !== 'IntentRequest') {
     res.send();
     return;
   }
   const aiRequest = {
+    id,
     name: _.get(alexaRequest, 'request.intent.name'),
     params: (() => {
       const params = {};
@@ -28,7 +32,9 @@ app.post('/', require('body-parser').json(), async (req, res) => {
     })(),
     session: _.get(alexaRequest, 'session.attributes', {}),
   };
+  console.log(`(${id}) aiRequest: ${aiRequest}`);
   const aiResponse = await rp.post({ body: aiRequest });
+  console.log(`(${id}) aiResponse: ${aiResponse}`);
   const alexaResponse = {
     version: '1.0',
     response: {},
@@ -46,5 +52,6 @@ app.post('/', require('body-parser').json(), async (req, res) => {
   if (aiResponse.finishSession) {
     alexaResponse.shouldEndSession = true;
   }
+  console.log(`(${id}) alexaResponse: ${alexaResponse}`);
   res.send(alexaResponse);
 });
