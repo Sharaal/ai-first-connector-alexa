@@ -26,6 +26,7 @@ app.post('/', require('body-parser').json(), async (req, res) => {
       }
       return params;
     })(),
+    session: _.get(alexaRequest, 'session.attributes', {}),
   };
   const aiResponse = await rp.post({ body: aiRequest });
   const alexaResponse = {};
