@@ -11,6 +11,11 @@ const rp = require('request-promise').defaults({
 
 app.post('/', require('body-parser').json(), async (req, res) => {
   const alexaRequest = req.body;
+  const type = _.get(alexaRequest, 'request.type');
+  if (type !== 'IntentRequest') {
+    res.send();
+    return;
+  }
   const aiRequest = {
     name: _.get(alexaRequest, 'request.intent.name'),
     params: (() => {
