@@ -29,12 +29,15 @@ app.post('/', require('body-parser').json(), async (req, res) => {
     session: _.get(alexaRequest, 'session.attributes', {}),
   };
   const aiResponse = await rp.post({ body: aiRequest });
-  const alexaResponse = {};
+  const alexaResponse = {
+    version: '1.0',
+    response: {},
+  };
   if (aiResponse.say) {
-    alexaResponse.outputSpeech = { type: 'PlainText', text: aiResponse.say };
+    alexaResponse.response.outputSpeech = { type: 'PlainText', text: aiResponse.say };
   }
   if (aiResponse.display) {
-    alexaResponse.card = { type: 'Standard', title: aiResponse.display.title, text: aiResponse.display.text };
+    alexaResponse.response.card = { type: 'Standard', title: aiResponse.display.title, text: aiResponse.display.text };
   }
   res.send(alexaResponse);
 });
