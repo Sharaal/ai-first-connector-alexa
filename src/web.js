@@ -39,5 +39,8 @@ app.post('/', require('body-parser').json(), async (req, res) => {
   if (aiResponse.display) {
     alexaResponse.response.card = { type: 'Standard', title: aiResponse.display.title, text: aiResponse.display.text };
   }
+  if (aiResponse.session) {
+    alexaResponse.sessionAttributes = aiResponse.session;
+  }
   res.send(alexaResponse);
 });
