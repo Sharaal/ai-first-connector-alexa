@@ -32,6 +32,7 @@ app.post('/', require('body-parser').json(), async (req, res) => {
   const alexaResponse = {
     version: '1.0',
     response: {},
+    shouldEndSession: false,
   };
   if (aiResponse.say) {
     alexaResponse.response.outputSpeech = { type: 'PlainText', text: aiResponse.say };
@@ -41,6 +42,9 @@ app.post('/', require('body-parser').json(), async (req, res) => {
   }
   if (aiResponse.session) {
     alexaResponse.sessionAttributes = aiResponse.session;
+  }
+  if (aiResponse.finishSession) {
+    alexaResponse.shouldEndSession = true;
   }
   res.send(alexaResponse);
 });
