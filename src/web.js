@@ -21,6 +21,7 @@ app.post('/', require('body-parser').json(), async (req, res) => {
   }
   const aiRequest = {
     id,
+    locale: _.get(alexaRequest, 'request.locale'),
     name: _.get(alexaRequest, 'request.intent.name'),
     params: (() => {
       const params = {};
