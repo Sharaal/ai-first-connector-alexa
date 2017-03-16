@@ -56,6 +56,9 @@ module.exports = ({ rp }) =>
     if (aiResponse.finishSession) {
       alexaResponse.shouldEndSession = true;
     }
+    if (aiResponse.requireAccessToken) {
+      alexaResponse.response.card = { type: 'LinkAccount' };
+    }
     console.log(`(${id}) alexaResponse: ${JSON.stringify(alexaResponse)}`);
     res.send(alexaResponse);
   }]];
