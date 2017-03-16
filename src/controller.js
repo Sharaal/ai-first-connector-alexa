@@ -24,6 +24,10 @@ module.exports = ({ rp }) =>
         return params;
       })(),
       session: _.get(alexaRequest, 'session.attributes', {}),
+      user: {
+        id: _.get(alexaRequest, 'session.user.userId'),
+        accessToken: _.get(alexaRequest, 'session.user.accessToken')
+      },
     };
     console.log(`(${id}) aiRequest: ${JSON.stringify(aiRequest)}`);
     const aiResponse = await rp.post({body: aiRequest});
