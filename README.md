@@ -18,7 +18,7 @@ Connector which transforms the Alexa specific JSON format in the request to an i
     },
     "attributes": {},
     "user": {
-      "userId": "amzn1.ask.account.AEL4QJF5W6LFK3G5AUZJIPEGSC5MHYPSZHZTMQMNE2M3BXEIK7U5YR3KJIGHUQVPWU4TTY5N4IDTAXNGYCBMXFMHROI7JPZ56GIQG3ZYZD3ZKGRN3AMEFLCFJZCN6BGND3LQOT2VVKGPZVCVIZWISCPO7BWLLLVLKE3GN24SCSXTKYGJYM3YAJ5CLRPTHAFEDA4AKLBPHMFSXZQ"
+      "userId": "...userId..."
     }
   },
   "request": {
@@ -48,7 +48,7 @@ Connector which transforms the Alexa specific JSON format in the request to an i
   "params": {},
   "session": {},
   "user": {
-    "id": "amzn1.ask.account.AEL4QJF5W6LFK3G5AUZJIPEGSC5MHYPSZHZTMQMNE2M3BXEIK7U5YR3KJIGHUQVPWU4TTY5N4IDTAXNGYCBMXFMHROI7JPZ56GIQG3ZYZD3ZKGRN3AMEFLCFJZCN6BGND3LQOT2VVKGPZVCVIZWISCPO7BWLLLVLKE3GN24SCSXTKYGJYM3YAJ5CLRPTHAFEDA4AKLBPHMFSXZQ",
+    "id": "...userId...",
     "accessToken": ""
   }
 }
