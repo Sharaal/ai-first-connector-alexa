@@ -1,4 +1,5 @@
 const _ = require('lodash');
+const jwt = require('jsonwebtoken');
 
 module.exports = ({ applications, rp, secret }) =>
   ['post', ['/', require('body-parser').json(), async (req, res) => {
@@ -9,9 +10,13 @@ module.exports = ({ applications, rp, secret }) =>
       if (applications && !applications.includes(application)) {
         throw new Error('incorrect application');
       }
-      aiRequest = require('./transformers/request')(alexaRequest, { secret });
+      aiRequest = require('./transformers/request')(alexaRequest);
       if (aiRequest) {
-        aiResponse = await rp.post({ body: aiRequest });
+        const headers = {};
+        if (secret) {
+          headers['jwt'] = jwt.sign({ application, connector: 'alexa' }, secret);
+        }
+        aiResponse = await rp.post({ body: aiRequest, headers });
         alexaResponse = require('./transformers/response')(aiResponse);
       }
     } catch (e) {

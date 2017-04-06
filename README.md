@@ -42,12 +42,10 @@ Connector which transforms the Alexa specific JSON format in the request to an i
 
 ```json
 {
-  "connector": "alexa",
   "id": "EdwRequestId.e81ff9b8-3c02-43ce-9312-43ea3b1fc20e",
   "locale": "de-DE",
   "name": "newAssets",
   "params": {},
-  "secret": "...secret...",
   "session": {},
   "user": {
     "id": "...userId...",

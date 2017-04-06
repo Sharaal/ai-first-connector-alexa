@@ -5,8 +5,6 @@ module.exports = (alexaRequest, { secret }) => {
     return;
   }
   return {
-    application: _.get(alexaRequest, 'session.application.applicationId', ''),
-    connector: 'alexa',
     id: _.get(alexaRequest, 'request.requestId', ''),
     locale: _.get(alexaRequest, 'request.locale', ''),
     name: _.get(alexaRequest, 'request.intent.name', ''),
@@ -18,7 +16,6 @@ module.exports = (alexaRequest, { secret }) => {
       }
       return params;
     })(),
-    secret: secret,
     session: _.get(alexaRequest, 'session.attributes', {}),
     user: {
       id: _.get(alexaRequest, 'session.user.userId', ''),
