@@ -17,6 +17,6 @@ module.exports = ({ applications, rp, secret }) =>
     } catch (e) {
       error = e;
     }
-    console.log({ alexaRequest, aiRequest, aiResponse, alexaResponse, error });
+    console.log(JSON.stringify({ alexaRequest, aiRequest, aiResponse, alexaResponse, error }));
     res.send(alexaResponse);
   }]];
