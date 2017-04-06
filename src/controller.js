@@ -1,9 +1,9 @@
-module.exports = ({ rp }) =>
+module.exports = ({ rp, secret }) =>
   ['post', ['/', require('body-parser').json(), async (req, res) => {
     const alexaRequest = req.body;
     let aiRequest, aiResponse, alexaResponse, error;
     try {
-      aiRequest = require('./transformers/request')(alexaRequest);
+      aiRequest = require('./transformers/request')(alexaRequest, { secret });
       if (aiRequest) {
         aiResponse = await rp.post({ body: aiRequest });
         alexaResponse = require('./transformers/response')(aiResponse);

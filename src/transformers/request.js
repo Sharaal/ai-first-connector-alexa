@@ -1,10 +1,12 @@
 const _ = require('lodash');
 
-module.exports = (alexaRequest) => {
+module.exports = (alexaRequest, { secret }) => {
   if (_.get(alexaRequest, 'request.type') !== 'IntentRequest') {
     return;
   }
   return {
+    application: _.get(alexaRequest, 'session.application.applicationId', ''),
+    connector: 'alexa',
     id: _.get(alexaRequest, 'request.requestId', ''),
     locale: _.get(alexaRequest, 'request.locale', ''),
     name: _.get(alexaRequest, 'request.intent.name', ''),
@@ -16,6 +18,7 @@ module.exports = (alexaRequest) => {
       }
       return params;
     })(),
+    secret: secret,
     session: _.get(alexaRequest, 'session.attributes', {}),
     user: {
       id: _.get(alexaRequest, 'session.user.userId', ''),
