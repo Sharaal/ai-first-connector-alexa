@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 module.exports = ({ applications, rp, secret }) =>
   ['post', ['/', require('body-parser').json(), async (req, res) => {
     const alexaRequest = req.body;
-    let aiRequest, aiResponse, alexaResponse, error;
+    let aiRequest = {}, aiResponse, alexaResponse, error;
     const application = _.get(alexaRequest, 'session.application.applicationId', '');
     const headers = {};
     if (secret) {
