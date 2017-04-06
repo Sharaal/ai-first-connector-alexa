@@ -15,8 +15,8 @@ module.exports = ({ applications, rp, secret }) =>
         alexaResponse = require('./transformers/response')(aiResponse);
       }
     } catch (e) {
-      error = e.message;
+      error = e;
     }
-    console.log(`(${aiRequest.id}): ${JSON.stringify({ alexaRequest, aiRequest, aiResponse, alexaResponse, error })}`);
+    console.log({ alexaRequest, aiRequest, aiResponse, alexaResponse, error });
     res.send(alexaResponse);
   }]];
