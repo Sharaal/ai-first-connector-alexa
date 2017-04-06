@@ -4,7 +4,6 @@ module.exports = ({ applications, rp, secret }) =>
   ['post', ['/', require('body-parser').json(), async (req, res) => {
     const alexaRequest = req.body;
     let aiRequest = {}, aiResponse, alexaResponse, error;
-    const headers = { secret };
     try {
       const application = _.get(alexaRequest, 'session.application.applicationId', '');
       if (applications && !applications.includes(application)) {
@@ -12,12 +11,12 @@ module.exports = ({ applications, rp, secret }) =>
       }
       aiRequest = require('./transformers/request')(alexaRequest);
       if (aiRequest) {
-        aiResponse = await rp.post({ body: aiRequest, headers });
+        aiResponse = await rp.post({ body: aiRequest, headers: { secret } });
         alexaResponse = require('./transformers/response')(aiResponse);
       }
     } catch (e) {
       error = e.message;
     }
-    console.log(`(${aiRequest.id}): ${JSON.stringify({ alexaRequest, aiRequest, aiResponse, alexaResponse, error, headers })}`);
+    console.log(`(${aiRequest.id}): ${JSON.stringify({ alexaRequest, aiRequest, aiResponse, alexaResponse, error })}`);
     res.send(alexaResponse);
   }]];
