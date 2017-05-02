@@ -3,6 +3,7 @@
 
 Connector which transforms the Alexa specific JSON format in the request to an internal AI JSON format and back for the response.
 
+
 # Example Workflow
 
 ## Alexa Request
