@@ -25,16 +25,16 @@
   },
   "dependencies": {
     "body-parser": "^1.16.0",
-    "dcontrollers": "^1.1.0",
+    "dcontrollers": "^1.4.0",
     "dexpress": "^3.0.0",
-    "dotenv": "^4.0.0",
+    "dotenv-safe": "^4.0.3",
     "lodash": "^4.17.4",
     "request": "^2.79.0",
     "request-promise": "^4.1.1"
   },
   "devDependencies": {
     "eslint": "^3.15.0",
-    "eslint-config-dnode": "^1.8.0",
+    "eslint-config-dnode": "^1.10.0",
     "nodemon": "^1.11.0"
   }
 }

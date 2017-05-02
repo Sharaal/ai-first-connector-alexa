@@ -3,7 +3,9 @@ const _ = require('lodash');
 module.exports = ({ applications, rp, secret }) =>
   ['post', ['/', require('body-parser').json(), async (req, res) => {
     const alexaRequest = req.body;
-    let aiRequest = {}, aiResponse, alexaResponse, error;
+    let aiRequest;
+    let aiResponse;
+    let alexaResponse;
     try {
       const application = _.get(alexaRequest, 'session.application.applicationId', '');
       if (applications && !applications.includes(application)) {
@@ -14,13 +16,10 @@ module.exports = ({ applications, rp, secret }) =>
         aiResponse = await rp.post({ body: aiRequest, headers: { secret } });
         alexaResponse = require('./transformers/response')(aiResponse);
       }
-    } catch (e) {
-      error = e.message;
-    }
-    if (error) {
-      console.error(JSON.stringify({ error, alexaRequest, aiRequest, aiResponse, alexaResponse }));
-    } else {
       console.log(JSON.stringify({ alexaRequest, aiRequest, aiResponse, alexaResponse }));
+    } catch (e) {
+      const error = e.message;
+      console.error(JSON.stringify({ error, alexaRequest, aiRequest, aiResponse, alexaResponse }));
     }
     res.send(alexaResponse);
   }]];
