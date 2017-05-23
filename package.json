@@ -5,7 +5,7 @@
   },
   "name": "@ai-first/connector-alexa",
   "version": "1.0.0",
-  "description": "",
+  "description": "Transforms the Alexa JSON format in the request to an internal AI JSON format and back for the response",
   "repository": "sharaal/ai-first-connector-alexa",
   "license": "UNLICENSED",
   "publishConfig": {
