@@ -1,12 +1,13 @@
 require('dotenv-safe').config();
 
-const app = require('dexpress')();
+const app = require('express')();
+app.disable('x-powered-by');
 
-require('dmiddlewares')(app, [
+require('@dnode/middlewares')(app, [
   require('body-parser').json(),
 ]);
 
-require('dcontrollers')(app, [
+require('@dnode/controllers')(app, [
   require('./controller')({
     rp: require('request-promise').defaults({
       json: true,
@@ -14,3 +15,9 @@ require('dcontrollers')(app, [
     }),
   }),
 ]);
+
+if (module.parent) {
+  module.exports = app;
+} else {
+  app.listen(process.env.PORT);
+}

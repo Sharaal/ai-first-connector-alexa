@@ -1,9 +1,3 @@
-[![Dependency Status](https://david-dm.org/dragonprojects/ai-connector-alexa.svg)](https://david-dm.org/dragonprojects/ai-connector-alexa)
-[![devDependency Status](https://david-dm.org/dragonprojects/ai-connector-alexa/dev-status.svg)](https://david-dm.org/dragonprojects/ai-connector-alexa?type=dev)
-
-Connector which transforms the Alexa specific JSON format in the request to an internal AI JSON format and back for the response.
-
-
 # Example Workflow
 
 ## Alexa Request

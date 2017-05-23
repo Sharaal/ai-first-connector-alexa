@@ -1,40 +1,29 @@
 {
   "private": true,
-  "name": "ai-connector-alexa",
+  "engines": {
+    "node": "^7.6.0"
+  },
+  "name": "@ai-first/connector-alexa",
   "version": "1.0.0",
   "description": "",
+  "repository": "sharaal/ai-first-connector-alexa",
   "license": "UNLICENSED",
-  "homepage": "http://github.com/dragonprojects/ai-connector-alexa",
-  "author": {
-    "name": "Sharaal",
-    "email": "developer@dragonprojects.de",
-    "url": "http://dragonprojects.de"
+  "publishConfig": {
+    "access": "public"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/dragonprojects/ai-connector-alexa.git"
-  },
-  "readmeFilename": "README.md",
+  "main": "src/web.js",
   "scripts": {
-    "develop": "nodemon src/web.js",
-    "fmt": "dprettier",
     "start": "node src/web.js"
   },
-  "engines": {
-    "node": "7.6.x"
-  },
   "dependencies": {
+    "@dnode/controllers": "^1.0.0",
+    "@dnode/middlewares": "^1.0.1",
     "body-parser": "^1.16.0",
-    "dcontrollers": "^1.4.1",
-    "dexpress": "^3.0.0",
-    "dmiddlewares": "^1.2.2",
     "dotenv-safe": "^4.0.3",
+    "express": "^4.15.3",
     "lodash": "^4.17.4",
     "request": "^2.79.0",
     "request-promise": "^4.1.1"
   },
-  "devDependencies": {
-    "dprettier": "^1.1.0",
-    "nodemon": "^1.11.0"
-  }
+  "devDependencies": {}
 }
