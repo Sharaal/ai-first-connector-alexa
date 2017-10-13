@@ -20,6 +20,6 @@ module.exports = aiResponse => ({
     })(),
   },
   sessionAttributes: _.get(aiResponse, 'session', {}),
-  shouldEndSession: _.get(aiResponse, 'finishSession', false),
+  shouldEndSession: !!_.get(aiResponse, 'finishSession'),
   version: '1.0',
 });
