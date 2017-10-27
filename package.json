@@ -3,27 +3,22 @@
   "engines": {
     "node": "^7.6.0"
   },
-  "name": "@ai-first/connector-alexa",
+  "name": "ai-first-connector-alexa",
   "version": "1.0.0",
-  "description": "Transforms the Alexa JSON format in the request to an internal AI JSON format and back for the response",
+  "description": "",
   "repository": "sharaal/ai-first-connector-alexa",
   "license": "UNLICENSED",
-  "publishConfig": {
-    "access": "public"
-  },
-  "main": "src/web.js",
   "scripts": {
     "start": "node src/web.js"
   },
   "dependencies": {
     "@dnode/controllers": "^1.0.0",
+    "@dnode/env": "^1.0.0",
+    "@dnode/express": "^1.1.0",
     "@dnode/middlewares": "^1.0.1",
     "body-parser": "^1.16.0",
-    "dotenv-safe": "^4.0.3",
-    "express": "^4.15.3",
-    "lodash": "^4.17.4",
+    "lodash.get": "^4.4.2",
     "request": "^2.79.0",
     "request-promise": "^4.1.1"
-  },
-  "devDependencies": {}
+  }
 }

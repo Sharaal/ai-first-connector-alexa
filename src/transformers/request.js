@@ -1,4 +1,6 @@
-const _ = require('lodash');
+const _ = {
+  get: require('lodash.get'),
+};
 
 module.exports = alexaRequest => {
   if (_.get(alexaRequest, 'request.type') !== 'IntentRequest') {

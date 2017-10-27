@@ -1,4 +1,6 @@
-const _ = require('lodash');
+const _ = {
+  get: require('lodash.get'),
+};
 
 module.exports = aiResponse => ({
   response: {
@@ -10,7 +12,7 @@ module.exports = aiResponse => ({
       if (_.get(aiResponse, 'requireAccessToken')) {
         return { type: 'LinkAccount' };
       }
-      if (_.has(aiResponse, 'display')) {
+      if (_.get(aiResponse, 'display')) {
         return {
           type: 'Standard',
           title: _.get(aiResponse, 'display.title', ''),

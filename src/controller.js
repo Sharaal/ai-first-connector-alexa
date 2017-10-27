@@ -13,20 +13,10 @@ module.exports = ({ rp }) => [
           aiResponse = await rp.post({ body: aiRequest });
           alexaResponse = require('./transformers/response')(aiResponse);
         }
-        console.log(
-          JSON.stringify({ alexaRequest, aiRequest, aiResponse, alexaResponse })
-        );
+        console.log(JSON.stringify({ alexaRequest, aiRequest, aiResponse, alexaResponse }));
       } catch (e) {
         const error = e.message;
-        console.error(
-          JSON.stringify({
-            error,
-            alexaRequest,
-            aiRequest,
-            aiResponse,
-            alexaResponse,
-          })
-        );
+        console.error(JSON.stringify({ error, alexaRequest, aiRequest, aiResponse, alexaResponse }));
       }
       res.send(alexaResponse);
     },
