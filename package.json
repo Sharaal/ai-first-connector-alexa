@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@dnode/controllers": "^1.0.0",
-    "@dnode/env": "^1.0.0",
+    "@dnode/env": "^2.0.2",
     "@dnode/express": "^1.1.0",
     "@dnode/middlewares": "^1.0.1",
     "body-parser": "^1.16.0",
