@@ -1,5 +1,7 @@
 # Example Workflow
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Sharaal/ai-first-connector-alexa.svg)](https://greenkeeper.io/)
+
 ## Alexa Request
 
 ```json
